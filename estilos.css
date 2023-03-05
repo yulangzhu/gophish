@@ -159,6 +159,12 @@ span{
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
+.forgot{
+    position: relative;
+    margin-top: -20px;
+    font-size: 13px;
+}
+
 .forgot, .guest span, .btnCreate{
     color: #4285f4;
     font-weight: bold;
